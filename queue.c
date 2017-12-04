@@ -30,7 +30,6 @@ void q_enqueue(queue* q, void* ptr) {
     return;
 }
 
-// something is wrong here with removal of last pointer, dangling ref
 void* q_dequeue(queue* q) {
     if (_empty(q)) return NULL;
     queue_element* qe = q->f;
