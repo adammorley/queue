@@ -16,10 +16,13 @@ int main() {
     q_enqueue(q, p(6));
     q_enqueue(q, p(7));
     q_enqueue(q, p(8));
-    assert(*(int*)q_dequeue(q) == 5);
-    assert(*(int*)q_dequeue(q) == 6);
-    assert(*(int*)q_dequeue(q) == 7);
-    assert(*(int*)q_dequeue(q) == 8);
+    int* p;
+    for (int i = 5; i<= 8; i++) {
+        p = q_dequeue(q);
+        assert(*p == i);
+        free(p);
+    }
     assert(q_dequeue(q) == NULL);
+    free(q);
     return 0;
 }
