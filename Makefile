@@ -1,12 +1,13 @@
 CC=/usr/local/Cellar/llvm/5.0.0/bin/clang
 CFLAGS=-I. -g
+DEPS=../log/log.c
 
 all: test
 
 clean:
 	rm -f test *.o
 
-test: test.c queue.c
-	$(CC) -o test test.c queue.c $(CFLAGS)
+test: test.c queue.c $(DEPS)
+	$(CC) -o test test.c queue.c $(DEPS) $(CFLAGS)
 
 

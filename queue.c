@@ -1,11 +1,13 @@
-#include <assert.h>
 #include <stdbool.h>
 #include <stdlib.h>
+
+#include "../log/log.h"
+
 #include "queue.h"
 
 queue* queue_new() {
     queue* q = malloc(sizeof(queue));
-    if (q == NULL) assert(true);
+    if (q == NULL) Assert(false, __func__, "malloc error");
     q->f = NULL;
     q->b = NULL;
     return q;
